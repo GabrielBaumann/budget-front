@@ -106,7 +106,6 @@ h1, h2, h3, h4 {
 }
 .bottom-nav-item.active {
     background-color: rgb(104, 155, 250);
-    border-radius: 30px;
 }
 .bottom-nav-item i {
     font-size: 1.5rem;
@@ -114,7 +113,7 @@ h1, h2, h3, h4 {
     color: rgb(255, 255, 255);
 }
 .bottom-nav-item span {
-    display: none;
+    color: white;
 }
 
 /* Hide desktop nav on mobile */
