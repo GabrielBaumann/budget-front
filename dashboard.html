@@ -12,25 +12,25 @@
 <body class="bg-white text-gray-900">
     <div class="flex flex-col min-h-screen">
         <!-- Header Principal -->
-        <header class="bg-gray-50 p-4 border-b-2 border-gray-200 flex justify-left md:justify-center" id="main-header">
-            <h1 class="text-2xl font-bold text-gray-800">OrçaFácil</h1>
+        <header class="bg-white p-3 flex justify-center" id="main-header">
+            <h1 class="text-2xl font-normal text-blue-700">OrçaFácil</h1>
         </header>
 
         <!-- Header de Navegação (Desktop) -->
-        <nav class="bg-gray-50 border-b-2 border-gray-200" id="secondary-header">
+        <nav class="bg-white border-b border-gray-300" id="secondary-header">
             <div class="max-w-5xl mx-auto px-4">
                 <div class="flex justify-center">
                     <div class="flex">
-                        <button class="nav-button text-base font-medium active" data-target="inicio-content">
+                        <button class="nav-button text-base font-normal active" data-target="inicio-content">
                             Início
                         </button>
-                        <button class="nav-button text-base font-medium" data-target="beneficiarios-content">
+                        <button class="nav-button text-base font-normal" data-target="beneficiarios-content">
                             Beneficiários
                         </button>
-                        <button class="nav-button text-base font-medium" data-target="obras-content">
+                        <button class="nav-button text-base font-normal" data-target="obras-content">
                             Obras
                         </button>
-                        <button class="nav-button text-base font-medium" data-target="materiais-content">
+                        <button class="nav-button text-base font-normal" data-target="materiais-content">
                             Materiais
                         </button>
                     </div>
@@ -39,8 +39,8 @@
         </nav>
         
         <!-- Breadcrumb Header (hidden by default) -->
-        <div class="breadcrumb-header" id="breadcrumb-header">
-            <div class="max-w-5xl mx-auto px-4">
+        <div class="breadcrumb-header border-none" id="breadcrumb-header">
+            <div class="max-w-5xl mx-auto px-4 mb-0">
                 <div class="breadcrumb-content">
                     <button class="breadcrumb-button" id="breadcrumb-back-button">
                         <i class="fas fa-chevron-left"></i>
@@ -57,11 +57,11 @@
                 <!-- Conteúdo da página Início -->
                 <div id="inicio-content" class="content-section">
                     <div class="space-y-6">
-                        <h2 class="section-title">Visão geral</h2>
+                        <h2 class="section-title font-normal">Visão geral</h2>
                         
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
                             <!-- Card Beneficiários -->
-                            <div class="bg-white p-6 rounded-lg card shadow-sm">
+                            <div class="bg-white p-6">
                                 <div class="flex flex-col">
                                     <div class="flex justify-between items-start">
                                         <div>
@@ -79,7 +79,7 @@
                             </div>
                             
                             <!-- Card Obras -->
-                            <div class="bg-white p-6 rounded-lg card shadow-sm">
+                            <div class="bg-white p-6">
                                 <div class="flex flex-col">
                                     <div class="flex justify-between items-start">
                                         <div>
@@ -97,7 +97,7 @@
                             </div>
                             
                             <!-- Card Materiais -->
-                            <div class="bg-white p-6 rounded-lg card shadow-sm">
+                            <div class="bg-white p-6">
                                 <div class="flex flex-col">
                                     <div class="flex justify-between items-start">
                                         <div>
@@ -115,7 +115,7 @@
                             </div>
                             
                             <!-- Card Total -->
-                            <div class="bg-white p-6 rounded-lg card shadow-sm">
+                            <div class="bg-white p-6">
                                 <div class="flex flex-col">
                                     <div class="flex justify-between items-start">
                                         <div>
@@ -139,8 +139,8 @@
                 <div id="beneficiarios-content" class="content-section hidden">
                     <div id="beneficiarios-header" class="space-y-6">
                         <div class="flex justify-between items-center">
-                            <h2 class="section-title">Beneficiários</h2>
-                            <button class="btn btn-primary" id="btn-novo-beneficiario">
+                            <h2 class="section-title font-normal">Beneficiários</h2>
+                            <button class="btn btn-primary rounded-lg" id="btn-novo-beneficiario">
                                 Cadastrar Novo
                             </button>
                         </div>
@@ -167,7 +167,7 @@
                         
                         <!-- Tabela de Beneficiários -->
                         <div id="beneficiarios-tabela">
-                            <div class="bg-white rounded-lg card overflow-hidden shadow-sm">
+                            <div class="bg-white rounded-lg card overflow-hidden">
                                 <div class="overflow-x-auto">
                                     <table class="responsive-table min-w-full divide-y divide-gray-200">
                                         <thead class="bg-gray-50">
@@ -203,8 +203,8 @@
                     
                     <!-- Formulário de Beneficiário -->
                     <div id="beneficiarios-form" class="hidden max-w-5xl mx-auto px-4">
-                        <div class="bg-white rounded-lg card p-6 shadow-sm">
-                            <h3 class="text-xl font-bold mb-6 text-gray-800">Cadastrar Novo Beneficiário</h3>
+                        <div class="bg-white">
+                            <h3 class="text-xl font-normal mb-6 text-gray-800">Cadastrar Novo Beneficiário</h3>
                             
                             <form class="space-y-5">
                                 <div>
@@ -244,8 +244,8 @@
                 <div id="obras-content" class="content-section hidden">
                     <div id="obras-header" class="space-y-6">
                         <div class="flex justify-between items-center">
-                            <h2 class="section-title">Obras</h2>
-                            <button class="btn btn-primary" id="btn-nova-obra">
+                            <h2 class="section-title font-normal">Obras</h2>
+                            <button class="btn btn-primary rounded-lg" id="btn-nova-obra">
                                 Nova Obra
                             </button>
                         </div>
@@ -304,7 +304,7 @@
                     
                     <!-- Formulário de Obra -->
                     <div id="obras-form" class="hidden max-w-5xl mx-auto px-4">
-                        <div class="bg-white rounded-lg card p-6 shadow-sm">
+                        <div class="bg-white p-6">
                             <h3 class="text-xl font-bold mb-6 text-gray-800">Cadastrar Nova Obra</h3>
                             
                             <form class="space-y-5">
@@ -345,8 +345,8 @@
                 <div id="materiais-content" class="content-section hidden">
                     <div id="materiais-header" class="space-y-6">
                         <div class="flex justify-between items-center">
-                            <h2 class="section-title">Materiais</h2>
-                            <button class="btn btn-primary" id="btn-novo-material">
+                            <h2 class="section-title font-normal">Materiais</h2>
+                            <button class="btn btn-primary rounded-lg" id="btn-novo-material">
                                 Novo Material
                             </button>
                         </div>
@@ -404,7 +404,7 @@
                     
                     <!-- Formulário de Material -->
                     <div id="materiais-form" class="hidden max-w-5xl mx-auto px-4">
-                        <div class="bg-white rounded-lg card p-6 shadow-sm">
+                        <div class="bg-white p-6">
                             <h3 class="text-xl font-bold mb-6 text-gray-800">Cadastrar Novo Material</h3>
                             
                             <form class="space-y-5">

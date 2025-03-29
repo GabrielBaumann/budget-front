@@ -81,35 +81,37 @@ h1, h2, h3, h4 {
 /* Bottom Navigation for Mobile */
 .bottom-nav {
     position: fixed;
-    bottom: 1rem;
-    left: 1rem;
-    right: 1rem;
-    background-color: #2563eb;
-    border-radius: 1rem;
+    bottom: 0rem;
+    left: 0rem;
+    right: 0rem;
+    background-color: #2464db;
+    border-top-right-radius: 50px; 
+    border-top-left-radius: 50px; 
     z-index: 50;
     display: flex;
     justify-content: space-around;
     padding: 0.75rem 0;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 .bottom-nav-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0.5rem;
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 0.875rem;
     font-weight: 500;
-    border-radius: 0.5rem;
+    border-radius: 30px;
     transition: all 0.2s ease;
 }
 .bottom-nav-item.active {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgb(104, 155, 250);
+    border-radius: 30px;
 }
 .bottom-nav-item i {
     font-size: 1.5rem;
     margin-bottom: 0;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 .bottom-nav-item span {
     display: none;
@@ -165,8 +167,7 @@ h1, h2, h3, h4 {
     font-size: 1rem;
 }
 .nav-button.active {
-    color: #2563eb;
-    font-weight: 600;
+    color: black;
 }
 .nav-button.active::after {
     content: '';
