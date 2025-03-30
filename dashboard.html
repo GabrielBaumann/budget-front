@@ -12,9 +12,10 @@
 <body class="bg-white text-gray-900">
     <div class="flex flex-col min-h-screen">
         <!-- Header Principal -->
-        <header class="bg-blue-500 md:bg-white p-2 flex justify-center" id="main-header">
-            <h1 class="text-2xl font-normal text-white md:text-blue-700">OrçaFácil</h1>
+        <header class="bg-white p-2 flex justify-center relative">
+            <h1 class="text-2xl font-normal bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-500">OrçaFácil</h1>
         </header>
+               
 
         <!-- Header de Navegação (Desktop) -->
         <nav class="bg-white border-b border-gray-300" id="secondary-header">
@@ -55,86 +56,69 @@
         <main class="flex-1 content-container bg-white">
             <div class="max-w-5xl mx-auto px-4 py-8">
                 <!-- Conteúdo da página Início -->
-                <div id="inicio-content" class="content-section">
-                    <div class="space-y-6">
-                        <h2 class="section-title font-normal">Visão geral</h2>
+                <div id="inicio-content" class="content-section max-w-7xl mx-auto bg-white">
+                    <h2 class="text-3xl font-normal text-gray-900">Visão Geral</h2>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 mt-8">
+                        <!-- Card Beneficiários -->
+                        <div class="bg-gray-100 rounded-xl p-8 flex flex-col gap-6 border border-gray-300">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="text-gray-700 text-xl font-semibold">Beneficiários</p>
+                                    <h3 class="text-5xl font-bold text-gray-900">128</h3>
+                                </div>
+                                <div class="p-4 rounded-xl bg-gray-200 text-gray-700">
+                                    <i class="fas fa-user-friends text-4xl"></i>
+                                </div>
+                            </div>
+                            <p class="text-lg text-gray-600 border-t border-gray-300 pt-4">+12% em relação ao mês anterior</p>
+                        </div>
                         
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-                            <!-- Card Beneficiários -->
-                            <div class="bg-transparent p-6">
-                                <div class="flex flex-col">
-                                    <div class="flex justify-between items-start">
-                                        <div>
-                                            <p class="card-title">Beneficiários</p>
-                                            <h3 class="card-value mt-3">128</h3>
-                                        </div>
-                                        <div class="p-3 rounded-full bg-blue-50 text-primary">
-                                            <i class="fas fa-user-friends text-2xl"></i>
-                                        </div>
-                                    </div>
-                                    <div class="mt-4 pt-4 border-t-2 border-gray-200">
-                                        <p class="card-footer">+12% em relação ao mês anterior</p>
-                                    </div>
+                        <!-- Card Obras -->
+                        <div class="bg-gray-100 rounded-xl p-8 flex flex-col gap-6 border border-gray-300">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="text-gray-700 text-xl font-semibold">Obras</p>
+                                    <h3 class="text-5xl font-bold text-gray-900">24</h3>
+                                </div>
+                                <div class="p-4 rounded-xl bg-gray-200 text-gray-700">
+                                    <i class="fas fa-building text-4xl"></i>
                                 </div>
                             </div>
-                            
-                            <!-- Card Obras -->
-                            <div class="bg-transparent p-6">
-                                <div class="flex flex-col">
-                                    <div class="flex justify-between items-start">
-                                        <div>
-                                            <p class="card-title">Obras</p>
-                                            <h3 class="card-value mt-3">24</h3>
-                                        </div>
-                                        <div class="p-3 rounded-full bg-blue-50 text-primary">
-                                            <i class="fas fa-building text-2xl"></i>
-                                        </div>
-                                    </div>
-                                    <div class="mt-4 pt-4 border-t-2 border-gray-200">
-                                        <p class="card-footer">+3 novas este mês</p>
-                                    </div>
+                            <p class="text-lg text-gray-600 border-t border-gray-300 pt-4">+3 novas este mês</p>
+                        </div>
+                        
+                        <!-- Card Materiais -->
+                        <div class="bg-gray-100 rounded-xl p-8 flex flex-col gap-6 border border-gray-300">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="text-gray-700 text-xl font-semibold">Materiais</p>
+                                    <h3 class="text-5xl font-bold text-gray-900">156</h3>
+                                </div>
+                                <div class="p-4 rounded-xl bg-gray-200 text-gray-700">
+                                    <i class="fas fa-box-open text-4xl"></i>
                                 </div>
                             </div>
-                            
-                            <!-- Card Materiais -->
-                            <div class="bg-transparent p-6">
-                                <div class="flex flex-col">
-                                    <div class="flex justify-between items-start">
-                                        <div>
-                                            <p class="card-title">Materiais</p>
-                                            <h3 class="card-value mt-3">156</h3>
-                                        </div>
-                                        <div class="p-3 rounded-full bg-blue-50 text-primary">
-                                            <i class="fas fa-box-open text-2xl"></i>
-                                        </div>
-                                    </div>
-                                    <div class="mt-4 pt-4 border-t-2 border-gray-200">
-                                        <p class="card-footer">5 materiais com estoque baixo</p>
-                                    </div>
+                            <p class="text-lg text-gray-600 border-t border-gray-300 pt-4">5 materiais com estoque baixo</p>
+                        </div>
+                        
+                        <!-- Card Total -->
+                        <div class="bg-gray-100 rounded-xl p-8 flex flex-col gap-6 border border-gray-300">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="text-gray-700 text-xl font-semibold">Total Geral</p>
+                                    <h3 class="text-5xl font-bold text-gray-900">308</h3>
+                                </div>
+                                <div class="p-4 rounded-xl bg-gray-200 text-gray-700">
+                                    <i class="fas fa-chart-line text-4xl"></i>
                                 </div>
                             </div>
-                            
-                            <!-- Card Total -->
-                            <div class="bg-transparent p-6">
-                                <div class="flex flex-col">
-                                    <div class="flex justify-between items-start">
-                                        <div>
-                                            <p class="card-title">Total Geral</p>
-                                            <h3 class="card-value mt-3">308</h3>
-                                        </div>
-                                        <div class="p-3 rounded-full bg-blue-50 text-primary">
-                                            <i class="fas fa-chart-line text-2xl"></i>
-                                        </div>
-                                    </div>
-                                    <div class="mt-4 pt-4 border-t-2 border-gray-200">
-                                        <p class="card-footer">Visão geral do sistema</p>
-                                    </div>
-                                </div>
-                            </div>
+                            <p class="text-lg text-gray-600 border-t border-gray-300 pt-4">Visão geral do sistema</p>
                         </div>
                     </div>
                 </div>
 
+                    
                 <!-- Conteúdo da página Beneficiários -->
                 <div id="beneficiarios-content" class="content-section hidden">
                     <div id="beneficiarios-header" class="space-y-6">
