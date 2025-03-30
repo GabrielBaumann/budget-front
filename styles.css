@@ -81,16 +81,17 @@ h1, h2, h3, h4 {
 /* Bottom Navigation */
 .bottom-nav {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
     background-color: #ffffff;
     border-top: 1px solid #eaeaea;
+    border-radius: 50px;
     z-index: 50;
     display: flex;
     justify-content: space-around;
-    padding: 0.75rem 0 1rem;
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
+    /* padding: 1.5rem 0 1rem; */
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
 .bottom-nav-item {
@@ -100,7 +101,7 @@ h1, h2, h3, h4 {
     align-items: center;
     padding: 0.5rem 0.75rem;
     color: #64748b;
-    font-size: 0.85rem; /* Aumentei a fonte */
+    font-size: 0.85rem;
     font-weight: 500;
     border: none;
     background: transparent;
@@ -306,7 +307,7 @@ h1, h2, h3, h4 {
 
 /* Primary colors */
 .btn-primary {
-    background-color: #2563eb;
+    background: linear-gradient(135deg, #3b82f6, #6366f1); 
     color: white;
 }
 .btn-primary:hover {
