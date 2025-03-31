@@ -13,6 +13,7 @@ class Web extends Controller
 
     public function inicio() : void
     {
+        var_dump(__DIR__);
 
         echo $this->view->render("pag_inicio", [
             "title" => "MENU",
