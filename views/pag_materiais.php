@@ -1,5 +1,7 @@
+<?php $this->layout('layout', ['title' => $title]) ?>
+
 <!-- Conteúdo da página Materiais -->
-<div id="materiais-content" class="content-section hidden">
+<div id="materiais-content" class="content-section">
     <div id="materiais-header" class="space-y-6">
         <div class="flex justify-between items-center">
             <h2 class="section-title">Materiais</h2>
@@ -43,15 +45,23 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-base font-semibold text-gray-900" data-label="Nome">Cimento CP II</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-base text-gray-700" data-label="Quantidade">150 sacos</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-base text-gray-700" data-label="Valor Unitário">R$ 32,90</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-base font-medium" data-label="Ações">
-                                    <a href="#" class="text-primary hover:text-blue-700 mr-4"><i class="fas fa-edit"></i></a>
-                                    <a href="#" class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></a>
-                                </td>
-                            </tr>
+                            <?php if(empty($listMateriais)): ?>
+                                <tr>
+                                    <td colspan = "2">Nenuma material cadastrada...</td>
+                                </tr>
+                            <?php else: ?>
+                                <?php foreach($listMateriais as $material): ?>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-base font-semibold text-gray-900" data-label="Nome"><?= $material["nome"]; ?></td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-base text-gray-700" data-label="Quantidade"><?= $material["quantidade"]; ?></td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-base text-gray-700" data-label="Valor Unitário"><?= $material["valorUnitario"]; ?></td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-base font-medium" data-label="Ações">
+                                            <a href="#" class="text-primary hover:text-blue-700 mr-4"><i class="fas fa-edit"></i></a>
+                                            <a href="#" class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>

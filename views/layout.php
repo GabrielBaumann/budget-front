@@ -22,18 +22,18 @@
             <div class="max-w-5xl mx-auto px-4">
                 <div class="flex justify-center">
                     <div class="flex">
-                    <a href="/budget-front/"><button class="nav-button text-base font-medium active" data-target="inicio-content">
+                    <a href="/budget/"><button class="nav-button text-base font-medium" data-target="inicio-content">
                        Início    
                         </button></a>
-                        <a href="/budget-front/ben/"><button class="nav-button text-base font-medium" data-target="beneficiarios-content">
+                        <a href="/budget/ben"><button class="nav-button text-base font-medium" data-target="beneficiarios-content">
                         Beneficiários
                         </button></a>
-                        <button class="nav-button text-base font-medium" data-target="obras-content">
+                        <a href="/budget/ob"><button class="nav-button text-base font-medium" data-target="obras-content">
                             Obras
-                        </button>
-                        <button class="nav-button text-base font-medium" data-target="materiais-content">
+                        </button></a>
+                        <a href="/budget/mat"><button class="nav-button text-base font-medium" data-target="materiais-content">
                             Materiais
-                        </button>
+                        </button></a>
                     </div>
                 </div>
             </div>
@@ -54,10 +54,10 @@
                 <i class="fas fa-home"></i>
                 <span>Início</span>
             </button>
-            <button class="bottom-nav-item" data-target="beneficiarios-content">
+            <a href="/budget/ben"><button class="bottom-nav-item" data-target="beneficiarios-content">
                 <i class="fas fa-user"></i>
                 <span>Beneficiários</span>
-            </button>
+            </button></a>
             <button class="bottom-nav-item" data-target="obras-content">
                 <i class="fas fa-hammer"></i>
                 <span>Obras</span>
@@ -68,6 +68,6 @@
             </button>
         </div>
     </div>
-    <script src="<?= themes("/assets/script.js"); ?>"></script>
+  
 </body>
 </html>

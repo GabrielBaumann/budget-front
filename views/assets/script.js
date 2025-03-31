@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         breadcrumbHeader.style.display = 'none';
     }
     
-    // Mudar seção ativa
+//     // Mudar seção ativa
     function setActiveSection(target) {
         // Remove classes ativas dos botões
         navButtons.forEach(btn => {

@@ -1,6 +1,7 @@
 <?php $this->layout('layout', ['title' => $title]) ?>
+
 <!-- Conteúdo da página Obras -->
-<div id="obras-content" class="content-section hidden">
+<div id="obras-content" class="content-section">
     <div id="obras-header" class="space-y-6">
         <div class="flex justify-between items-center">
             <h2 class="section-title">Obras</h2>
@@ -44,16 +45,24 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-base font-semibold text-gray-900" data-label="Nome da Obra">Residencial Green Valley</td>
-                                <td class="px-6 py-4 whitespace-nowrap" data-label="Status">
-                                    <span class="px-3 py-1 inline-flex text-sm leading-5 font-semibold rounded-full bg-blue-100 text-primary">Em andamento</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-base font-medium" data-label="Ações">
-                                    <a href="#" class="text-primary hover:text-blue-700 mr-4"><i class="fas fa-edit"></i></a>
-                                    <a href="#" class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></a>
-                                </td>
-                            </tr>
+                            <?php if(empty($listObra)): ?>
+                                <tr>
+                                    <td colspan = "2">Nenuma obra cadastrada...</td>
+                                </tr>
+                            <?php else: ?>
+                                <?php foreach($listObra as $obra): ?>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-base font-semibold text-gray-900" data-label="Nome da Obra"><?= $obra["nomeObra"]; ?></td>
+                                        <td class="px-6 py-4 whitespace-nowrap" data-label="Status">
+                                            <span class="px-3 py-1 inline-flex text-sm leading-5 font-semibold rounded-full bg-blue-100 text-primary"><?= $obra["status"]; ?></span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-base font-medium" data-label="Ações">
+                                            <a href="#" class="text-primary hover:text-blue-700 mr-4"><i class="fas fa-edit"></i></a>
+                                            <a href="#" class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>

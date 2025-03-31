@@ -1,7 +1,7 @@
 <?php $this->layout('layout', ['title' => $title]) ?>
 
 <!-- Conteúdo da página Beneficiários -->
-<div id="beneficiarios-content" class="content-section hidden">
+<div id="beneficiarios-content" class="content-section">
     <div id="beneficiarios-header" class="space-y-6">
         <div class="flex justify-between items-center">
             <h2 class="section-title">Beneficiários</h2>
@@ -43,22 +43,22 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-base font-semibold text-gray-900" data-label="Nome">João Silva</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-base text-gray-700" data-label="CPF">123.456.789-00</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-base font-medium" data-label="Ações">
-                                    <a href="#" class="text-primary hover:text-blue-700 mr-4"><i class="fas fa-edit"></i></a>
-                                    <a href="#" class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-base font-semibold text-gray-900" data-label="Nome">Maria Oliveira</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-base text-gray-700" data-label="CPF">987.654.321-00</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-base font-medium" data-label="Ações">
-                                    <a href="#" class="text-primary hover:text-blue-700 mr-4"><i class="fas fa-edit"></i></a>
-                                    <a href="#" class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></a>
-                                </td>
-                            </tr>
+                            <?php if (empty($listaUsuario)): ?>
+                                <tr>
+                                    <td colspan = "2">Nenhum beneficiário cadastrado...</td>
+                                </tr>
+                            <?php else: ?>
+                                <?php foreach($listaUsuario as $usuario): ?>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-base font-semibold text-gray-900" data-label="Nome"><?= $usuario["nome"]; ?></td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-base text-gray-700" data-label="CPF"><?= $usuario["cpf"]?></td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-base font-medium" data-label="Ações">
+                                            <a href="#" class="text-primary hover:text-blue-700 mr-4"><i class="fas fa-edit"></i></a>
+                                            <a href="#" class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>

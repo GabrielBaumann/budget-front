@@ -13,6 +13,8 @@ $route = new Router(url(), ":");
 $route->namespace("Source\App");
 $route->get("/", "Web:inicio");
 $route->get("/ben", "Web:beneficiario");
+$route->get("/ob", "Web:obras");
+$route->get("/mat", "Web:materiais");
 
 
 
