@@ -31,3 +31,19 @@ function redirect(string $url) : void
         exit;       
     }
 }
+
+// ASSETS
+function themes(?string $path = null): string
+{
+    if (strpos($_SERVER['HTTP_HOST'], "localhost") !== false) {
+        if ($path) {
+            return CONF_URL_TEST . "/views/" . ($path[0] == "/" ? mb_substr($path, 1) : $path);
+        }
+        return CONF_URL_TEST . "/views/";
+    }
+
+    if ($path) {
+        return CONF_URL_BASE . "/views/" . ($path[0] == "/" ? mb_substr($path, 1) : $path);
+    }
+    return CONF_URL_BASE . "/views/";
+}

@@ -13,11 +13,19 @@ class Web extends Controller
 
     public function inicio() : void
     {
-        var_dump(__DIR__);
+        $totais = [
+            "totBeneficio" => 1000,
+            "totObras" => 1000,
+            "obraNovasMes" => 50,
+            "totMateriais" => 1000,
+            "materialEstoqueBaixo" => 25,
+            "totGeral" => 1000000,
+            "porcentagem" => "50%"
+        ];
 
         echo $this->view->render("pag_inicio", [
             "title" => "MENU",
-            "valor" => 10
+            "totais" => $totais
         ]);    
     }
 

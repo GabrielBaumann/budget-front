@@ -78,98 +78,41 @@ h1, h2, h3, h4 {
     }
 }
 
-/* Bottom Navigation */
+/* Bottom Navigation for Mobile */
 .bottom-nav {
     position: fixed;
     bottom: 1rem;
     left: 1rem;
     right: 1rem;
-    background-color: #ffffff;
-    border-top: 1px solid #eaeaea;
-    border-radius: 50px;
+    background-color: #2563eb;
+    border-radius: 1rem;
     z-index: 50;
     display: flex;
     justify-content: space-around;
-    /* padding: 1.5rem 0 1rem; */
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    padding: 0.75rem 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
-
 .bottom-nav-item {
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0.5rem 0.75rem;
-    color: #64748b;
-    font-size: 0.85rem;
+    padding: 0.5rem;
+    color: white;
+    font-size: 0.875rem;
     font-weight: 500;
-    border: none;
-    background: transparent;
-    transition: all 0.3s ease;
-    width: 100%;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
 }
-
 .bottom-nav-item.active {
-    color: #3b82f6; /* Azul mais vibrante */
+    background-color: rgba(255, 255, 255, 0.2);
 }
-
 .bottom-nav-item i {
-    font-size: 1.5rem; /* Aumentei o ícone */
-    margin-bottom: 0.35rem; /* Ajuste do espaçamento */
-    transition: all 0.3s ease;
-    position: relative;
-    z-index: 2; /* Garante que o ícone fique acima do círculo */
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    color: white;
 }
-
-.bottom-nav-item.active i {
-    transform: translateY(-12px);
-    color: #ffffff; /* Ícone branco quando ativo */
-}
-
 .bottom-nav-item span {
-    color: inherit;
-    font-size: 0.8rem; /* Aumentei a fonte */
-    transition: all 0.3s ease;
-}
-
-/* Círculo colorido de fundo para o ícone ativo */
-.bottom-nav-item.active::before {
-    content: '';
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #3b82f6, #6366f1); 
-    border-radius: 50%;
-    z-index: 1;
-    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
-}
-
-/* Adicionei cores diferentes para cada item */
-.bottom-nav-item[data-target="beneficiarios-content"].active::before {
-    background: linear-gradient(135deg, #3b82f6, #6366f1);
-    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
-}
-
-.bottom-nav-item[data-target="obras-content"].active::before {
-    background: linear-gradient(135deg, #3b82f6, #6366f1);
-    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
-}
-
-.bottom-nav-item[data-target="materiais-content"].active::before {
-    background: linear-gradient(135deg, #3b82f6, #6366f1);
-    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
-}
-
-/* Efeito hover suave */
-.bottom-nav-item:not(.active):hover {
-    color: #334155;
-}
-
-.bottom-nav-item:not(.active):hover i {
-    transform: scale(1.1);
+    display: none;
 }
 
 /* Hide desktop nav on mobile */
@@ -222,7 +165,8 @@ h1, h2, h3, h4 {
     font-size: 1rem;
 }
 .nav-button.active {
-    color: black;
+    color: #2563eb;
+    font-weight: 600;
 }
 .nav-button.active::after {
     content: '';
@@ -307,7 +251,7 @@ h1, h2, h3, h4 {
 
 /* Primary colors */
 .btn-primary {
-    background: linear-gradient(135deg, #3b82f6, #6366f1); 
+    background-color: #2563eb;
     color: white;
 }
 .btn-primary:hover {

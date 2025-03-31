@@ -113,5 +113,55 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     document.getElementById('btn-cancelar-material').addEventListener('click', hideForm);
-
+    
+    // Swipe para navegação no mobile
+    const contentContainer = document.querySelector('.content-container');
+    
+    contentContainer.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+    }, false);
+    
+    contentContainer.addEventListener('touchmove', function(e) {
+        if (!startX) return;
+        moveX = e.touches[0].clientX;
+    }, false);
+    
+    contentContainer.addEventListener('touchend', function(e) {
+        if (!startX || !moveX) return;
+        
+        const diffX = startX - moveX;
+        
+        if (Math.abs(diffX) > 50) {
+            if (diffX > 0) {
+                // Swipe para a esquerda - próxima seção
+                switch(currentSection) {
+                    case 'inicio-content':
+                        setActiveSection('beneficiarios-content');
+                        break;
+                    case 'beneficiarios-content':
+                        setActiveSection('obras-content');
+                        break;
+                    case 'obras-content':
+                        setActiveSection('materiais-content');
+                        break;
+                }
+            } else {
+                // Swipe para a direita - seção anterior
+                switch(currentSection) {
+                    case 'materiais-content':
+                        setActiveSection('obras-content');
+                        break;
+                    case 'obras-content':
+                        setActiveSection('beneficiarios-content');
+                        break;
+                    case 'beneficiarios-content':
+                        setActiveSection('inicio-content');
+                        break;
+                }
+            }
+        }
+        
+        startX = null;
+        moveX = null;
+    }, false);
 });
