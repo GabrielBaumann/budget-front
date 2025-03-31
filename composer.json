@@ -1,0 +1,42 @@
+{
+    "name": "cerberus/bugdet",
+    "version": "1.0.0",
+    "description": "Formação Full Stack PHP Developer",
+    "minimum-stability": "stable",
+    "authors": [
+      {
+        "name": "Lucas S. Santos",
+        "email": "trabalhovba@gmail.com",
+        "homepage": "https://www.cerberus.com.br",
+        "role": "Developer"
+      },
+      {
+        "name": "Gabriel Baumann",
+        "email": "noreply@github.com",
+        "homepage": "https://www.cerberus.com.br",
+        "role": "UI/UX Designer"
+      }
+    ],
+    "config": {
+      "vendor-dir": "vendor"
+    },
+    "autoload": {
+      "psr-4": {
+        "Source\\": "source/"
+      },
+      "files": [
+        "source/Boot/Config.php",
+        "source/Boot/Helpers.php",
+        "source/Boot/Minify.php"
+      ]
+    },
+    "require": {
+      "php": "^8.0",
+      "ext-pdo": "*",
+      "league/plates": "^3.5",
+      "coffeecode/optimizer": "^2.0",
+      "coffeecode/router": "*",
+      "matthiasmullie/minify": "^1.3"
+    }
+  }
+  
