@@ -50,8 +50,8 @@
                             <?php else: ?>
                                 <?php foreach($listaUsuario as $usuario): ?>
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-base font-semibold text-gray-900" data-label="Nome"><?= $usuario["nome"]; ?></td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-base text-gray-700" data-label="CPF"><?= $usuario["cpf"]?></td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-base font-semibold text-gray-900" data-label="Nome"><?= $usuario->nome; ?></td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-base text-gray-700" data-label="CPF"><?= $usuario->cpf; ?></td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-base font-medium" data-label="Ações">
                                             <a href="#" class="text-primary hover:text-blue-700 mr-4"><i class="fas fa-edit"></i></a>
                                             <a href="#" class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></a>

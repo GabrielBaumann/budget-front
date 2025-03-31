@@ -3,6 +3,7 @@
 namespace Source\App;
 
 use Source\Core\Controller;
+use Source\Models\Usuario;
 
 class Web extends Controller
 {
@@ -12,9 +13,12 @@ class Web extends Controller
     }
 
     public function inicio() : void
-    {
+    {   
+
+        $totUsuario = (new Usuario())->find()->count();
+        // var_dump($totUsuario);
         $totais = [
-            "totBeneficio" => 1000,
+            "totBeneficio" => $totUsuario,
             "totObras" => 1000,
             "obraNovasMes" => 50,
             "totMateriais" => 1000,
@@ -32,21 +36,11 @@ class Web extends Controller
     public function beneficiario() : void
     {   
 
-        $beneficiario = [
-            ["nome" => "Gabirel Belmont",
-            "cpf" => "666555877"],
-            ["nome" => "Lucas Silva",
-            "cpf" => "12345687"],
-            ["nome" => "Tiago Silva",
-            "cpf" => "13246578"],
-            ["nome" => "Victor Laras",
-            "cpf" => "7894561"],
-
-        ];
+        $usuario = (new Usuario())->find()->fetch(true);
 
         echo $this->view->render("pag_beneficiario", [
             "title" => "Beneficiario",
-            "listaUsuario" => $beneficiario
+            "listaUsuario" => $usuario
         ]);    
     }
 

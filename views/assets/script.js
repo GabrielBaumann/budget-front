@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         breadcrumbHeader.style.display = 'none';
     }
     
-//     // Mudar seção ativa
+    // Mudar seção ativa
     function setActiveSection(target) {
         // Remove classes ativas dos botões
         navButtons.forEach(btn => {
@@ -96,22 +96,40 @@ document.addEventListener('DOMContentLoaded', function() {
     breadcrumbBackButton.addEventListener('click', hideForm);
     
     // Botões de novo cadastro
-    document.getElementById('btn-novo-beneficiario').addEventListener('click', function() {
-        showForm('beneficiarios-content', 'Novo Beneficiário');
+    // document.getElementById('btn-novo-beneficiario').addEventListener('click', function() {
+    //     showForm('beneficiarios-content', 'Novo Beneficiário');
+
+    // });
+    
+    // document.getElementById('btn-cancelar-beneficiario').addEventListener('click', hideForm);
+    
+    // document.getElementById('btn-nova-obra').addEventListener('click', function() {
+    //     showForm('obras-content', 'Nova Obra');
+    //     alert("teste");
+    // });
+    
+    // document.getElementById('btn-cancelar-obra').addEventListener('click', hideForm);
+    
+    // document.getElementById('btn-novo-material').addEventListener('click', function() {
+    //     showForm('materiais-content', 'Novo Material');
+    // });
+    
+    // document.getElementById('btn-cancelar-material').addEventListener('click', hideForm);
+
+    document.body.addEventListener('click', function(event) {
+        if (event.target.id === 'btn-novo-beneficiario') {
+            showForm('beneficiarios-content', 'Novo Beneficiário');
+        } else if (event.target.id === 'btn-cancelar-beneficiario') {
+            hideForm();
+        } else if (event.target.id === 'btn-nova-obra') {
+            showForm('obras-content', 'Nova Obra');
+        } else if (event.target.id === 'btn-cancelar-obra') {
+            hideForm();
+        } else if (event.target.id === 'btn-novo-material') {
+            showForm('materiais-content', 'Novo Material');
+        } else if (event.target.id === 'btn-cancelar-material') {
+            hideForm();
+        }
     });
-    
-    document.getElementById('btn-cancelar-beneficiario').addEventListener('click', hideForm);
-    
-    document.getElementById('btn-nova-obra').addEventListener('click', function() {
-        showForm('obras-content', 'Nova Obra');
-    });
-    
-    document.getElementById('btn-cancelar-obra').addEventListener('click', hideForm);
-    
-    document.getElementById('btn-novo-material').addEventListener('click', function() {
-        showForm('materiais-content', 'Novo Material');
-    });
-    
-    document.getElementById('btn-cancelar-material').addEventListener('click', hideForm);
 
 });

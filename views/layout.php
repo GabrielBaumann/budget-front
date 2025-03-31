@@ -22,23 +22,34 @@
             <div class="max-w-5xl mx-auto px-4">
                 <div class="flex justify-center">
                     <div class="flex">
-                    <a href="/budget/"><button class="nav-button text-base font-medium" data-target="inicio-content">
+                    <a href="<?= url("/"); ?>"><button class="nav-button text-base font-medium" data-target="inicio-content">
                        Início    
                         </button></a>
-                        <a href="/budget/ben"><button class="nav-button text-base font-medium" data-target="beneficiarios-content">
+                        <a href="<?= url("/ben"); ?>"><button class="nav-button text-base font-medium" data-target="beneficiarios-content">
                         Beneficiários
                         </button></a>
-                        <a href="/budget/ob"><button class="nav-button text-base font-medium" data-target="obras-content">
+                        <a href="<?= url("/ob"); ?>"><button class="nav-button text-base font-medium" data-target="obras-content">
                             Obras
                         </button></a>
-                        <a href="/budget/mat"><button class="nav-button text-base font-medium" data-target="materiais-content">
+                        <a href="<?= url("/mat"); ?>"><button class="nav-button text-base font-medium" data-target="materiais-content">
                             Materiais
                         </button></a>
                     </div>
                 </div>
             </div>
         </nav>
-
+        <!-- Breadcrumb Header (hidden by default) -->
+        <div class="breadcrumb-header border-none" id="breadcrumb-header">
+            <div class="max-w-5xl mx-auto px-4 mb-0">
+                <div class="breadcrumb-content">
+                    <button class="breadcrumb-button" id="breadcrumb-back-button">
+                        <i class="fas fa-chevron-left"></i>
+                        <span>Voltar</span>
+                    </button>
+                    <div class="breadcrumb-text" id="breadcrumb-text"></div>
+                </div>
+            </div>
+        </div>
 
         <!-- Conteúdo Principal -->
 
@@ -50,24 +61,32 @@
 
         <!-- Bottom Navigation (Mobile) -->
         <div class="bottom-nav">
-            <button class="bottom-nav-item active" data-target="inicio-content">
-                <i class="fas fa-home"></i>
-                <span>Início</span>
-            </button>
-            <a href="/budget/ben"><button class="bottom-nav-item" data-target="beneficiarios-content">
-                <i class="fas fa-user"></i>
-                <span>Beneficiários</span>
-            </button></a>
-            <button class="bottom-nav-item" data-target="obras-content">
-                <i class="fas fa-hammer"></i>
-                <span>Obras</span>
-            </button>
-            <button class="bottom-nav-item" data-target="materiais-content">
-                <i class="fas fa-box"></i>
-                <span>Materiais</span>
-            </button>
+            <a href="<?= url("/"); ?>">
+                <button class="bottom-nav-item active" data-target="inicio-content">
+                    <i class="fas fa-home"></i>
+                    <span>Início</span>
+                </button>
+            </a>
+            <a href="<?= url("/ben"); ?>">
+                <button class="bottom-nav-item" data-target="beneficiarios-content">
+                    <i class="fas fa-user"></i>
+                    <span>Beneficiários</span>
+                </button>
+            </a>
+            <a href="<?= url("/ob"); ?>">
+                <button class="bottom-nav-item" data-target="obras-content">
+                    <i class="fas fa-hammer"></i>
+                    <span>Obras</span>
+                </button>
+            </a>
+            <a href="<?= url("/mat"); ?>">
+                <button class="bottom-nav-item" data-target="materiais-content">
+                    <i class="fas fa-box"></i>
+                    <span>Materiais</span>
+                </button>
+            </a>
         </div>
     </div>
-  
+  <script src="<?= themes("/assets/script.js"); ?>"></script>
 </body>
 </html>
