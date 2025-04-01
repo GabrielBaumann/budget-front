@@ -45,7 +45,7 @@ class Web extends Controller
                 return;
             }
             
-            $joson['redirect'] = url("/");
+            $joson['redirect'] = url("/ben");
             echo json_encode($joson);
             return;
 
