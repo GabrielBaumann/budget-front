@@ -49,7 +49,7 @@ abstract class Model
     public function __construct(string $entity, array $protected, array $required)
     {
         self::$entity = $entity;
-        self::$protected = array_merge($protected, []);
+        self::$protected = array_merge($protected, ["data_cadastro", "data_atualizacao"]);
         self::$required = $required;
 
         $this->message = new Message();

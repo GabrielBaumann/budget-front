@@ -4,12 +4,12 @@ namespace Source\Models;
 
 use Source\Core\Model;
 
-class Usuario extends Model
+class Beneficiario extends Model
 {
     public function __construct()
     {
         parent::__construct(
-            "usuarios", ["idusuarios"], ["nome","email","senha","telefone"]
+            "beneficiarios", ["idusuarios"], ["nome", "email", "senha"]
         );
     }
 }

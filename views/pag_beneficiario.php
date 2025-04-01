@@ -71,7 +71,7 @@
         <div class="bg-white rounded-lg card p-6 shadow-sm">
             <h3 class="text-xl font-bold mb-6 text-gray-800">Cadastrar Novo Beneficiário</h3>
             
-            <form class="space-y-5">
+            <form class="space-y-5" action="<?= url("/ben"); ?>" method="post">
                 <div>
                     <label for="nome" class="form-label">Nome Completo</label>
                     <input type="text" id="nome" name="nome" class="mt-2 form-input w-full rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
@@ -83,15 +83,22 @@
                 </div>
                 
                 <div>
-                    <label for="email" class="form-label">E-mail</label>
-                    <input type="email" id="email" name="email" class="mt-2 form-input w-full rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                    <label for="email" class="form-label">Rua</label>
+                    <input type="text" id="rua" name="rua" class="mt-2 form-input w-full rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
                 </div>
                 
+                <div>
+                    <label for="telefone" class="form-label">Endereço</label>
+                    <input type="tel" id="telefone" name="telefone" class="mt-2 form-input w-full rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                </div>
+               
                 <div>
                     <label for="telefone" class="form-label">Telefone</label>
                     <input type="tel" id="telefone" name="telefone" class="mt-2 form-input w-full rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
                 </div>
-                
+                <div class="ajax_response">
+                    
+                </div>
                 <div class="flex justify-end space-x-4 pt-6">
                     <button type="button" id="btn-cancelar-beneficiario" class="btn border-2 border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50">
                         Cancelar

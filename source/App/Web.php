@@ -3,6 +3,8 @@
 namespace Source\App;
 
 use Source\Core\Controller;
+use Source\Models\Beneficiario;
+use Source\Models\Entidade;
 use Source\Models\Usuario;
 
 class Web extends Controller
@@ -16,7 +18,7 @@ class Web extends Controller
     {   
 
         $totUsuario = (new Usuario())->find()->count();
-        // var_dump($totUsuario);
+
         $totais = [
             "totBeneficio" => $totUsuario,
             "totObras" => 1000,
@@ -33,10 +35,30 @@ class Web extends Controller
         ]);    
     }
 
-    public function beneficiario() : void
+    public function beneficiario(?array $data) : void
     {   
+        if(!empty($data)) {
+            
+            if (in_array("", $data)) {
+                $json['message'] = "erro";
+                echo json_encode($json);
+                return;
+            }
+            
+            $joson['redirect'] = url("/");
+            echo json_encode($joson);
+            return;
 
-        $usuario = (new Usuario())->find()->fetch(true);
+            $usuario = (new Beneficiario())->find()->fetch(true);
+
+            echo $this->view->render("pag_beneficiario", [
+                "title" => "Beneficiario",
+                "listaUsuario" => $usuario
+            ]);
+
+        }
+
+        $usuario = (new Beneficiario())->find()->fetch(true);
 
         echo $this->view->render("pag_beneficiario", [
             "title" => "Beneficiario",
