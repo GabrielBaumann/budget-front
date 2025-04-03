@@ -89,7 +89,7 @@
                 
                 <div>
                     <label for="telefone" class="form-label">Endereço</label>
-                    <input type="tel" id="telefone" name="telefone" class="mt-2 form-input w-full rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                    <input type="tel" id="telefone" name="endereco" class="mt-2 form-input w-full rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
                 </div>
                
                 <div>

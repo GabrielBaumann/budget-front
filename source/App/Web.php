@@ -5,6 +5,7 @@ namespace Source\App;
 use Source\Core\Controller;
 use Source\Models\Beneficiario;
 use Source\Models\Entidade;
+use Source\Models\Obras;
 use Source\Models\Usuario;
 
 class Web extends Controller
@@ -17,11 +18,12 @@ class Web extends Controller
     public function inicio() : void
     {   
 
-        $totUsuario = (new Usuario())->find()->count();
+        $totUsuario = (new Beneficiario())->find()->count();
+        $totObras = (new Obras())->find()->count();
 
         $totais = [
             "totBeneficio" => $totUsuario,
-            "totObras" => 1000,
+            "totObras" => $totObras,
             "obraNovasMes" => 50,
             "totMateriais" => 1000,
             "materialEstoqueBaixo" => 25,
@@ -38,14 +40,25 @@ class Web extends Controller
     public function beneficiario(?array $data) : void
     {   
         if(!empty($data)) {
-            
+
             if (in_array("", $data)) {
                 $json['message'] = "erro";
                 echo json_encode($json);
                 return;
             }
             
-            $joson['redirect'] = url("/");
+            $beneficiario = (new Beneficiario())->cadastrarBeneficiario(
+                1,
+                $data['nome'],
+                $data['cpf'],
+                $data['rua'],
+                $data['endereco'],
+                $data['telefone']
+            );
+
+            $beneficiario->save();
+
+            $joson['redirect'] = url("/ben");
             echo json_encode($joson);
             return;
 
@@ -66,20 +79,40 @@ class Web extends Controller
         ]);    
     }
 
-    public function obras() : void
+    public function obras(?array $data) : void
     {   
-        $obras = [
-            ["nomeObra" => "Obra 01",
-            "status" => "em andamento"],
-            ["nomeObra" => "Obra 02",
-            "status" => "Planejamento"],
-            ["nomeObra" => "Obra 02",
-            "status" => "Concluído"]
-        ];
+
+        $obras = (new Obras());
+
+        if(!empty($data)) {
+            
+            if (in_array("", $data)) {
+                $json['message'] = "erro";
+                echo json_encode($json);
+                return;
+            }
+
+            $obras->cadastrarObras(
+                1,
+                $data['nome-obra'],
+                $data['endereco'],
+                "Planejamento"
+            );
+
+            $obras->save();
+
+            $joson['redirect'] = url("/ob");
+            echo json_encode($joson);
+            return;
+
+        }
+
+
+        $obra = $obras->find()->fetch(true);
 
         echo $this->view->render("pag_obras", [
             "title" => "Obras",
-            "listObra" => $obras
+            "listObra" => $obra
         ]);    
     }
 

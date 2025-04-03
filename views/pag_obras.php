@@ -52,9 +52,9 @@
                             <?php else: ?>
                                 <?php foreach($listObra as $obra): ?>
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-base font-semibold text-gray-900" data-label="Nome da Obra"><?= $obra["nomeObra"]; ?></td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-base font-semibold text-gray-900" data-label="Nome da Obra"><?= $obra->rua; ?></td>
                                         <td class="px-6 py-4 whitespace-nowrap" data-label="Status">
-                                            <span class="px-3 py-1 inline-flex text-sm leading-5 font-semibold rounded-full bg-blue-100 text-primary"><?= $obra["status"]; ?></span>
+                                            <span class="px-3 py-1 inline-flex text-sm leading-5 font-semibold rounded-full bg-blue-100 text-primary"><?= $obra->endereco; ?></span>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-base font-medium" data-label="Ações">
                                             <a href="#" class="text-primary hover:text-blue-700 mr-4"><i class="fas fa-edit"></i></a>
