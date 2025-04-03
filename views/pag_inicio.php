@@ -61,7 +61,7 @@
                     <div class="flex justify-between items-start">
                         <div>
                             <p class="card-title">Materiais</p>
-                            <h3 class="card-value mt-3"><?= $totais["totGeral"]; ?></h3>
+                            <h3 class="card-value mt-3"><?= $totais["totMateriais"]; ?></h3>
                         </div>
                         <div class="p-3 rounded-full bg-blue-50 text-primary">
                             <i class="fas fa-box-open text-2xl"></i>

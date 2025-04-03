@@ -18,6 +18,7 @@ $route->post("/ben", "Web:beneficiario");
 $route->get("/ob", "Web:obras");
 $route->post("/ob", "Web:obras");
 $route->get("/mat", "Web:materiais");
+$route->post("/mat", "Web:materiais");
 
 
 
