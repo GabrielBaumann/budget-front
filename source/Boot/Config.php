@@ -4,11 +4,11 @@
 define("CONF_DB_HOST", "localhost");
 define("CONF_DB_USER", "root");
 define("CONF_DB_PASS", "");
-define("CONF_DB_NAME", "db_budget");
+define("CONF_DB_NAME", "db_bugdet");
 
 // URLs
 define("CONF_URL_BASE", "https://www.bugdet.com.br");
-define("CONF_URL_TEST", "https://www.localhost/budget");
+define("CONF_URL_TEST", "https://www.localhost/budget-front");
 
 
 // DATES
