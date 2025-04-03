@@ -47,18 +47,7 @@ class Web extends Controller
                 return;
             }
             
-            $beneficiario = (new Beneficiario())->cadastrarBeneficiario(
-                1,
-                $data['nome'],
-                $data['cpf'],
-                $data['rua'],
-                $data['endereco'],
-                $data['telefone']
-            );
-
-            $beneficiario->save();
-
-            $joson['redirect'] = url("/ben");
+            $joson['redirect'] = url("/");
             echo json_encode($joson);
             return;
 
