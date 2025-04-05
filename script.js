@@ -114,4 +114,16 @@ document.addEventListener('DOMContentLoaded', function() {
     
     document.getElementById('btn-cancelar-material').addEventListener('click', hideForm);
 
+    document.querySelectorAll('.nav-button').forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            document.querySelectorAll('.nav-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+        });
+    });
+
 });
