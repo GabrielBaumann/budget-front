@@ -19,8 +19,11 @@ class Web extends Controller
     public function inicio() : void
     {   
 
+        $beneficiarios = (new Beneficiario())->find()->fetch(true);
+
         echo $this->view->render("pag_inicio", [
-            "title" => "MENU"
+            "title" => "MENU",
+            "beneficiario" => $beneficiarios
         ]);    
     }
 
@@ -128,5 +131,57 @@ class Web extends Controller
         ]);
     }
 
+    public function cadastroBeneficiario(?array $data) : Void
+    {   
+        $beneficiario = (new Beneficiario());
+
+        if ($data['id']) {
+
+            $dados = (new Beneficiario())->findByIdObra($data['id']);
+
+            echo $this->view->render("formulario_beneficiario", [
+                "title" => "Editar Beneficiario",
+                "tituloFormulario" => "Editar Beneficiario",
+                "url" => url("/"),
+                "dados" => $dados
+            ]); 
+
+            return;
+        }
+
+        if(!empty($data)) {
+
+            if (in_array("", $data)) {
+                $json['message'] = "Preencha todos os dados";
+                echo json_encode($json);
+                return;
+            }
+
+            $beneficiario->cadastrarBeneficiario(
+                1,
+                $data['nome'],
+                $data['cpf'],
+                $data['endereco'],
+                $data['endereco'],
+                $data['telefone'],
+                $data['email']
+            );
+
+            $beneficiario->save();
+
+            $json['redirect'] = url("/");
+            echo json_encode($json);
+            return;
+        }
+
+        
+
+        echo $this->view->render("formulario_beneficiario", [
+            "title" => "Beneficiario",
+            "tituloFormulario" => "Beneficiário/Obra",
+            "url" => url("/"),
+            "dados" => null
+        ]);     
+    }
 
 }
