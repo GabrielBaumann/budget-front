@@ -19,23 +19,8 @@ class Web extends Controller
     public function inicio() : void
     {   
 
-        $totUsuario = (new Beneficiario())->find()->count();
-        $totObras = (new Obras())->find()->count();
-        $totMaterial = (new Material())->find()->count();
-
-        $totais = [
-            "totBeneficio" => $totUsuario,
-            "totObras" => $totObras,
-            "obraNovasMes" => 50,
-            "totMateriais" => $totMaterial,
-            "materialEstoqueBaixo" => 25,
-            "totGeral" => 1000000,
-            "porcentagem" => "50%"
-        ];
-
         echo $this->view->render("pag_inicio", [
-            "title" => "MENU",
-            "totais" => $totais
+            "title" => "MENU"
         ]);    
     }
 
@@ -44,7 +29,7 @@ class Web extends Controller
         if(!empty($data)) {
 
             if (in_array("", $data)) {
-                $json['message'] = "erro";
+                $json['message'] = "Preencha todos os dados";
                 echo json_encode($json);
                 return;
             }

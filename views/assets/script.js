@@ -1,135 +1,48 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Elementos do breadcrumb
-    const breadcrumbHeader = document.getElementById('breadcrumb-header');
-    const breadcrumbText = document.getElementById('breadcrumb-text');
-    const breadcrumbBackButton = document.getElementById('breadcrumb-back-button');
-    
-    // Navegação principal
-    const navButtons = document.querySelectorAll('.nav-button, .bottom-nav-item');
-    const contentSections = document.querySelectorAll('.content-section');
-    let currentSection = 'inicio-content';
-    let startX, moveX;
-    
-    // Mostrar formulário
-    function showForm(section, formName) {
-        // Adiciona classe form-active para esconder outros elementos
-        document.getElementById(section).classList.add('form-active');
-        
-        // Mostra breadcrumb
-        breadcrumbHeader.style.display = 'block';
-        
-        // Define texto do breadcrumb
-        let sectionName = '';
-        switch(section) {
-            case 'beneficiarios-content':
-                sectionName = 'Beneficiários';
-                break;
-            case 'obras-content':
-                sectionName = 'Obras';
-                break;
-            case 'materiais-content':
-                sectionName = 'Materiais';
-                break;
-        }
-        
-        breadcrumbText.textContent = `${sectionName} / ${formName}`;
-    }
-    
-    // Esconder formulário
-    function hideForm() {
-        // Remove classe form-active de todas as seções
-        contentSections.forEach(section => {
-            section.classList.remove('form-active');
-        });
-        
-        // Esconde breadcrumb
-        breadcrumbHeader.style.display = 'none';
-    }
-    
-    // Mudar seção ativa
-    function setActiveSection(target) {
-        // Remove classes ativas dos botões
-        navButtons.forEach(btn => {
-            btn.classList.remove('active', 'text-gray-900');
-            btn.classList.add('text-gray-500');
-            
-            if (btn.classList.contains('bottom-nav-item')) {
-                btn.classList.remove('text-gray-800');
-            }
-        });
-        
-        // Adiciona classes ativas ao botão clicado
-        const activeButtons = document.querySelectorAll(`[data-target="${target}"]`);
-        activeButtons.forEach(btn => {
-            btn.classList.add('active');
-            btn.classList.remove('text-gray-500');
-            
-            if (btn.classList.contains('bottom-nav-item')) {
-                btn.classList.add('text-gray-800');
-            } else {
-                btn.classList.add('text-gray-900');
-            }
-        });
-        
-        // Oculta todos os conteúdos
-        contentSections.forEach(section => {
-            section.classList.add('hidden');
-        });
-        
-        // Mostra o conteúdo correspondente
-        document.getElementById(target).classList.remove('hidden');
-        currentSection = target;
-        
-        // Garante que o formulário está escondido ao mudar de seção
-        hideForm();
-    }
-    
-    // Event listeners para navegação
-    navButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const target = this.getAttribute('data-target');
-            setActiveSection(target);
-        });
-    });
-    
-    // Botão voltar do breadcrumb
-    breadcrumbBackButton.addEventListener('click', hideForm);
-    
-    // Botões de novo cadastro
-    // document.getElementById('btn-novo-beneficiario').addEventListener('click', function() {
-    //     showForm('beneficiarios-content', 'Novo Beneficiário');
+// Toggle de tema claro/escuro
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+const themePath = document.getElementById('theme-path');
 
-    // });
-    
-    // document.getElementById('btn-cancelar-beneficiario').addEventListener('click', hideForm);
-    
-    // document.getElementById('btn-nova-obra').addEventListener('click', function() {
-    //     showForm('obras-content', 'Nova Obra');
-    //     alert("teste");
-    // });
-    
-    // document.getElementById('btn-cancelar-obra').addEventListener('click', hideForm);
-    
-    // document.getElementById('btn-novo-material').addEventListener('click', function() {
-    //     showForm('materiais-content', 'Novo Material');
-    // });
-    
-    // document.getElementById('btn-cancelar-material').addEventListener('click', hideForm);
+if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark');
+    themePath.setAttribute('d', 'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z');
+} else {
+    document.documentElement.classList.remove('dark');
+    themePath.setAttribute('d', 'M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z');
+}
 
-    document.body.addEventListener('click', function(event) {
-        if (event.target.id === 'btn-novo-beneficiario') {
-            showForm('beneficiarios-content', 'Novo Beneficiário');
-        } else if (event.target.id === 'btn-cancelar-beneficiario') {
-            hideForm();
-        } else if (event.target.id === 'btn-nova-obra') {
-            showForm('obras-content', 'Nova Obra');
-        } else if (event.target.id === 'btn-cancelar-obra') {
-            hideForm();
-        } else if (event.target.id === 'btn-novo-material') {
-            showForm('materiais-content', 'Novo Material');
-        } else if (event.target.id === 'btn-cancelar-material') {
-            hideForm();
-        }
-    });
+themeToggle.addEventListener('click', function() {
+    if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+        themePath.setAttribute('d', 'M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z');
+    } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+        themePath.setAttribute('d', 'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z');
+    }
+});
 
+// Máscara para CPF
+document.getElementById('cpf').addEventListener('input', function(e) {
+    let value = e.target.value.replace(/\D/g, '');
+    value = value.replace(/(\d{3})(\d)/, '$1.$2');
+    value = value.replace(/(\d{3})(\d)/, '$1.$2');
+    value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    e.target.value = value;
+});
+
+// Máscara para telefone
+document.getElementById('telefone').addEventListener('input', function(e) {
+    let value = e.target.value.replace(/\D/g, '');
+    if (value.length > 11) value = value.substring(0, 11);
+    
+    if (value.length <= 10) {
+        value = value.replace(/(\d{2})(\d)/, '($1) $2');
+        value = value.replace(/(\d{4})(\d)/, '$1-$2');
+    } else {
+        value = value.replace(/(\d{2})(\d)/, '($1) $2');
+        value = value.replace(/(\d{5})(\d)/, '$1-$2');
+    }
+    e.target.value = value;
 });

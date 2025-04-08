@@ -25,8 +25,8 @@ $(function () {
                     if (flash.length) {
                         flash.html(response.message).fadeIn(100).effect("bounce", 300);
                     } else {
-                        form.prepend("<div class='" + flashClass + "'>" + response.message + "</div>")
-                            .find("." + flashClass).effect("bounce", 300);
+                        form.append("<div class='" + flashClass + "'>" + response.message + "</div>")
+                            .find("." + flashClass).effect("bounce", 300);                        
                     }
                 } else {
                     flash.fadeOut(100);
