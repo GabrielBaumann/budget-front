@@ -8,7 +8,7 @@ define("CONF_DB_NAME", "db_bugdet");
 
 // URLs
 define("CONF_URL_BASE", "https://www.bugdet.com.br");
-define("CONF_URL_TEST", "https://www.localhost/budget-front");
+define("CONF_URL_TEST", "https://www.localhost/budget");
 
 
 // DATES
