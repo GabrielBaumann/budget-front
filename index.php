@@ -9,26 +9,29 @@ require __DIR__ . "/vendor/autoload.php";
 use CoffeeCode\Router\Router;
 
 $route = new Router(url(), ":");
-// var_dump("teste");
+
 $route->namespace("Source\App");
-$route->get("/", "Web:inicio");
-$route->get("/ben", "Web:beneficiario");
-$route->post("/ben", "Web:beneficiario");
 
-$route->get("/cad", "Web:cadastroBeneficiario");
-$route->get("/cad/{id}", "Web:cadastroBeneficiario");
-$route->post("/cad", "Web:cadastroBeneficiario");
+$route->get("/", "Web:login");
 
-$route->get("/unidade", "Web:unidadeMedida");
-$route->get("/uni", "Web:cadastroUnidade");
-$route->get("/uni/{id}", "Web:cadastroUnidade");
-$route->post("/uni", "Web:cadastroUnidade");
 
-$route->get("/ob", "Web:obras");
-$route->post("/ob", "Web:obras");
-$route->get("/mat", "Web:materiais");
-$route->post("/mat", "Web:materiais");
+$route->get("/ini", "App:inicio");
+$route->get("/ben", "App:beneficiario");
+$route->post("/ben", "App:beneficiario");
 
+$route->get("/cad", "App:cadastroBeneficiario");
+$route->get("/cad/{id}", "App:cadastroBeneficiario");
+$route->post("/cad", "App:cadastroBeneficiario");
+
+$route->get("/unidade", "App:unidadeMedida");
+$route->get("/uni", "App:cadastroUnidade");
+$route->get("/uni/{id}", "App:cadastroUnidade");
+$route->post("/uni", "App:cadastroUnidade");
+
+$route->get("/ob", "App:obras");
+$route->post("/ob", "App:obras");
+$route->get("/mat", "App:materiais");
+$route->post("/mat", "App:materiais");
 
 
 // ROUTE

@@ -1,9 +1,5 @@
 <?php $this->layout('layout_formulario', ['title' => $title, 'tituloFormulario' => $tituloFormulario, 'url' => $url, 'dados' => $dados]) ?>
 
-<?php $this->start('style') ?>
-    <link rel="stylesheet" href="<?= url("/views/assets/styles_cadastro.css"); ?>">
-<?php $this->stop() ?>
-
 <!-- Formulário -->
 <form class="space-y-6" action="<?= url("/cad")?>" method="post">
     <div class="space-y-4">

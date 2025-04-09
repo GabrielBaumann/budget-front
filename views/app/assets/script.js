@@ -23,6 +23,29 @@ themeToggle.addEventListener('click', function() {
     }
 });
 
+// Renderiza o header
+document.addEventListener('DOMContentLoaded', function () {
+    const currentPath = window.location.pathname.replace(/\/$/, ''); // remove a barra final
+    const navLinks = document.querySelectorAll('nav a');
+
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        const tempLink = document.createElement('a');
+        tempLink.href = href;
+
+        // Compara o pathname do link com o da página atual
+        if (tempLink.pathname.replace(/\/$/, '') === currentPath) {
+            link.classList.add('active-tab');
+            link.classList.add('text-primary-600', 'dark:text-blue-400');
+            link.classList.remove('text-gray-500', 'dark:text-gray-400');
+
+            if (link.classList.contains('hover:bg-gray-100')) {
+                link.classList.remove('hover:bg-gray-100', 'dark:hover:bg-gray-700');
+            }
+        }
+    });
+});
+
 // Máscara para CPF
 document.getElementById('cpf').addEventListener('input', function(e) {
     let value = e.target.value.replace(/\D/g, '');
