@@ -7,6 +7,7 @@ use Source\Models\Beneficiario;
 use Source\Models\Entidade;
 use Source\Models\Material;
 use Source\Models\Obras;
+use Source\Models\Unidade;
 use Source\Models\Usuario;
 
 class Web extends Controller
@@ -131,17 +132,19 @@ class Web extends Controller
         ]);
     }
 
-    public function cadastroBeneficiario(?array $data) : Void
+    public function cadastroBeneficiario(?array $data) : void
     {   
         $beneficiario = (new Beneficiario());
 
-        if ($data['id']) {
+        $id = $data['id'] ?? null;
+
+        if ($id) {
 
             $dados = (new Beneficiario())->findByIdObra($data['id']);
 
             echo $this->view->render("formulario_beneficiario", [
                 "title" => "Editar Beneficiario",
-                "tituloFormulario" => "Editar Beneficiario",
+                "tituloFormulario" => "Editar Beneficiário/Obra",
                 "url" => url("/"),
                 "dados" => $dados
             ]); 
@@ -182,6 +185,59 @@ class Web extends Controller
             "url" => url("/"),
             "dados" => null
         ]);     
+    }
+
+    public function unidadeMedida() : void
+    {
+        $undiades = (new Unidade())->find()->fetch(true);
+
+        echo $this->view->render("pag_unidade_medida", [
+            "title" => "Medidas cadastradas",
+            "unidades" => $undiades
+        ]);
+    }
+
+    public function cadastroUnidade(?array $data) : void
+    {   
+        $undiades = (new Unidade());
+
+        $id = $data['id'] ?? null;
+
+        if ($id) {
+            $dados = $undiades->findIdUnidade($id);
+            
+            echo $this->view->render("formulario_unidade", [
+                "title" => "Editar Unidades de Medida",
+                "tituloFormulario" => "Editar Unidade",
+                "url" => url("/unidade"),
+                "dados" => $dados
+            ]);
+
+            return;
+        }
+
+        if(!empty($data)) {
+            
+            $undiades->cadastarUnidade(
+                1,
+                $data['unidade'],
+                $data['abreviacao'],
+                $data['observacoes']
+            );
+
+            $undiades->save();
+
+            $json['redirect'] = url("/unidade");
+            echo json_encode($json);
+            return;
+        }
+
+        echo $this->view->render("formulario_unidade", [
+            "title" => "Unidade de Medida",
+            "tituloFormulario" => "Unidade",
+            "url" => url("/unidade"),
+            "dados" => null
+        ]);
     }
 
 }

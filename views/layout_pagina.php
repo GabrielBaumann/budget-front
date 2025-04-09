@@ -52,7 +52,7 @@
         <a href="<?= url("/"); ?>" class="flex items-center justify-center px-4 sm:px-6 relative active-tab">
             <span class="text-sm sm:text-base">Beneficiários e Obras</span>
         </a>
-        <a href="produtos.html" class="flex items-center justify-center px-4 sm:px-6 relative hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+        <a href="<?= url("/unidade")?>" class="flex items-center justify-center px-4 sm:px-6 relative hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
             <span class="text-sm sm:text-base">Unidades de medidas</span>
         </a>
         <a href="orcamentos.html" class="flex items-center justify-center px-4 sm:px-6 relative hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">

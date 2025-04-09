@@ -17,7 +17,7 @@ class Beneficiario extends Model
         int $idusuarios = 1,
         string $nome_beneficiario_obra,
         string $cpf,
-        string $rua,
+        string $bairro,
         string $endereco,
         string $contato,
         string $email
@@ -25,7 +25,7 @@ class Beneficiario extends Model
         $this->id_usuario = $idusuarios;
         $this->nome_beneficiario_obra = $nome_beneficiario_obra;
         $this->cpf = $cpf;
-        $this->rua = $rua;
+        $this->bairro = $bairro;
         $this->endereco = $endereco;
         $this->contato = $contato;
         $this->email = $email;

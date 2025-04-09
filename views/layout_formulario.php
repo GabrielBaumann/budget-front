@@ -72,11 +72,17 @@
         </nav>
 
         <!-- Título do Formulário -->
-        <div class="mb-6">
-            <h2 class="text-2xl font-semibold"><?=$this->e($tituloFormulario) ?></h2>
-            <p class="text-gray-500 dark:text-gray-400 mt-1">Preencha os dados abaixo para cadastrar um novo <?= $this->e($tituloFormulario) ?></p>
-        </div>
-
+        <?php if($dados): ?>
+            <div class="mb-6">
+                <h2 class="text-2xl font-semibold"><?=$this->e($tituloFormulario) ?></h2>
+                <p class="text-gray-500 dark:text-gray-400 mt-1">Editar os dados do <?= $this->e($tituloFormulario) ?></p>
+            </div>
+        <?php else: ?>
+            <div class="mb-6">
+                <h2 class="text-2xl font-semibold"><?=$this->e($tituloFormulario) ?></h2>
+                <p class="text-gray-500 dark:text-gray-400 mt-1">Preencha os dados abaixo para cadastrar um novo <?= $this->e($tituloFormulario) ?></p>
+            </div>
+        <?php endif ?>
 
     <?= $this->section("content"); ?>
 </main>

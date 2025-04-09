@@ -15,19 +15,19 @@
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
                 <label for="nome" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Nome completo *</label>
-                <input type="text" id="nome" name="nome" required value="<?= !empty($dados->nome_beneficiario_obra) ?? "" ?>"
+                <input type="text" id="nome" name="nome" required value="<?= $dados->nome_beneficiario_obra ?? "" ?>"
                     class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white">
             </div>
             
             <div>
                 <label for="cpf" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">CPF *</label>
-                <input type="text" id="cpf" name="cpf" required
+                <input type="text" id="cpf" name="cpf" required value="<?= $dados->cpf ?? "" ?>"
                     class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white">
             </div>
             
             <div>
                 <label for="data-nascimento" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Data de Nascimento</label>
-                <input type="date" id="data-nascimento" name="data-nascimento"
+                <input type="date" id="data-nascimento" name="data-nascimento" value="<?= $dados->data_nascimento ?? "" ?>"
                     class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white">
             </div>
             
@@ -52,19 +52,19 @@
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
                 <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">E-mail *</label>
-                <input type="email" id="email" name="email" required
+                <input type="email" id="email" name="email" required value="<?= $dados->email ?? "" ?>"
                     class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white">
             </div>
             
             <div>
                 <label for="telefone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Telefone *</label>
-                <input type="tel" id="telefone" name="telefone" required
+                <input type="tel" id="telefone" name="telefone" required value="<?= $dados->contato ?? "" ?>"
                     class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white">
             </div>
             
             <div class="sm:col-span-2">
                 <label for="endereco" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Endereço</label>
-                <input type="text" id="endereco" name="endereco"
+                <input type="text" id="endereco" name="endereco" value="<?= $dados->endereco ?? "" ?>"
                     class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white">
             </div>
             
@@ -93,14 +93,14 @@
         
         <div>
             <label for="observacoes" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Observações</label>
-            <textarea id="observacoes" name="observacoes" rows="3"
+            <textarea id="observacoes" name="observacoes" rows="3" aria-valuetext="<?= $dados->observacao ?? "" ?>"
                 class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white"></textarea>
         </div>
     </div>
 
     <!-- Botões de Ação -->
     <div class="flex flex-col-reverse sm:flex-row sm:justify-end gap-3 pt-4">
-        <a href="index.html" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 dark:focus:ring-offset-gray-800 inline-flex justify-center items-center transition-colors">
+        <a href="<?= url("/"); ?>" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 dark:focus:ring-offset-gray-800 inline-flex justify-center items-center transition-colors">
             Cancelar
         </a>
         <button type="submit" class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 dark:focus:ring-offset-gray-800 inline-flex justify-center items-center transition-colors">

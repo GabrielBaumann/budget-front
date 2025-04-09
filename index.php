@@ -19,6 +19,10 @@ $route->get("/cad", "Web:cadastroBeneficiario");
 $route->get("/cad/{id}", "Web:cadastroBeneficiario");
 $route->post("/cad", "Web:cadastroBeneficiario");
 
+$route->get("/unidade", "Web:unidadeMedida");
+$route->get("/uni", "Web:cadastroUnidade");
+$route->get("/uni/{id}", "Web:cadastroUnidade");
+$route->post("/uni", "Web:cadastroUnidade");
 
 $route->get("/ob", "Web:obras");
 $route->post("/ob", "Web:obras");
