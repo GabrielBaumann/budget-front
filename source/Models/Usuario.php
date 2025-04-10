@@ -25,7 +25,7 @@ class Usuario extends Model
                 return true;
             } else {
                 // var_dump("Senha errada");
-                $this->message->error("Senha incorreta!")->render();
+                $this->message->warning("Senha incorreta!")->render();
                 return false;
             }
             

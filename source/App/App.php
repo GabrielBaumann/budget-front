@@ -9,12 +9,17 @@ use Source\Models\Material;
 use Source\Models\Obras;
 use Source\Models\Unidade;
 use Source\Models\Usuario;
+use Source\Support\Message;
 
 class App extends Controller
 {
+    public $message;
+
     public function __construct()
     {
         parent::__construct(__DIR__ . "/../../views/app/");        
+        
+        $this->message = (new Message());
     }
 
     public function inicio() : void
@@ -26,110 +31,6 @@ class App extends Controller
             "title" => "MENU",
             "beneficiario" => $beneficiarios
         ]);    
-    }
-
-    public function beneficiario(?array $data) : void
-    {   
-        if(!empty($data)) {
-
-            if (in_array("", $data)) {
-                $json['message'] = "Preencha todos os dados";
-                echo json_encode($json);
-                return;
-            }
-            
-            $joson['redirect'] = url("/");
-            echo json_encode($joson);
-            return;
-
-            $usuario = (new Beneficiario())->find()->fetch(true);
-
-            echo $this->view->render("pag_beneficiario", [
-                "title" => "Beneficiario",
-                "listaUsuario" => $usuario
-            ]);
-
-        }
-
-        $usuario = (new Beneficiario())->find()->fetch(true);
-
-        echo $this->view->render("pag_beneficiario", [
-            "title" => "Beneficiario",
-            "listaUsuario" => $usuario
-        ]);    
-    }
-
-    public function obras(?array $data) : void
-    {   
-
-        $obras = (new Obras());
-
-        if(!empty($data)) {
-            
-            if (in_array("", $data)) {
-                $json['message'] = "erro";
-                echo json_encode($json);
-                return;
-            }
-
-            $obras->cadastrarObras(
-                1,
-                $data['nome-obra'],
-                $data['endereco'],
-                "Planejamento"
-            );
-
-            $obras->save();
-
-            $json['redirect'] = url("/ob");
-            echo json_encode($json);
-            return;
-
-        }
-
-
-        $obra = $obras->find()->fetch(true);
-
-        echo $this->view->render("pag_obras", [
-            "title" => "Obras",
-            "listObra" => $obra
-        ]);    
-    }
-
-    public function materiais(?array $data) : void
-    {
-        $material = (new Material());
-
-        if (!empty($data)) {
-
-            if (in_array("", $data)) {
-                $json['message'] = "erro";
-                echo json_encode($json);
-                return;
-            }
-
-            $material->cadastrarMaterial(
-                1,
-                $data['nome-material'],
-                $data['quantidade'],
-                $data['valor'],
-                $data['descricao']
-            );
-
-            $material->save();
-
-            $json['redirect'] = url("/mat");
-            echo json_encode($json);
-            return;
-        }
-
-        $materiais = $material->find()->fetch(true);
-
-        echo $this->view->render("pag_materiais", [
-            "title" => "Materiais",
-            "listMateriais" => $materiais
-            
-        ]);
     }
 
     public function cadastroBeneficiario(?array $data) : void
@@ -145,8 +46,8 @@ class App extends Controller
             echo $this->view->render("formulario_beneficiario", [
                 "title" => "Editar Beneficiario",
                 "tituloFormulario" => "Editar Beneficiário/Obra",
-                "url" => url("/"),
-                "dados" => $dados
+                "url" => url("/ini"),
+                "dados" => $dados,
             ]); 
 
             return;
@@ -155,7 +56,7 @@ class App extends Controller
         if(!empty($data)) {
 
             if (in_array("", $data)) {
-                $json['message'] = "Preencha todos os dados";
+                $json['message'] = $this->message->error("Preencha todos os dados")->render();
                 echo json_encode($json);
                 return;
             }
@@ -172,17 +73,15 @@ class App extends Controller
 
             $beneficiario->save();
 
-            $json['redirect'] = url("/");
+            $json['redirect'] = url("/ini");
             echo json_encode($json);
             return;
         }
 
-        
-
         echo $this->view->render("formulario_beneficiario", [
             "title" => "Beneficiario",
             "tituloFormulario" => "Beneficiário/Obra",
-            "url" => url("/"),
+            "url" => url("/ini"),
             "dados" => null
         ]);     
     }
@@ -218,7 +117,13 @@ class App extends Controller
         }
 
         if(!empty($data)) {
-            
+           
+            if(empty($data['unidade']) || empty($data['abreviacao'])) {
+                $json['message'] = $this->message->warning("Preencha todos os campos")->render();
+                echo json_encode($json);
+                return;
+            }
+
             $undiades->cadastarUnidade(
                 1,
                 $data['unidade'],
@@ -228,6 +133,7 @@ class App extends Controller
 
             $undiades->save();
 
+            $json['message'] = $this->message->success("Cadastro feito com sucesso!")->render();
             $json['redirect'] = url("/unidade");
             echo json_encode($json);
             return;

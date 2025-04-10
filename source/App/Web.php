@@ -32,6 +32,7 @@ class Web extends Controller
             if ($usuario->autenticar($data['usuario'], $data['senha'])) {
                 // var_dump($data);
                 $json['message'] = $usuario->message()->render();
+                $json['redirect'] = url("/ini");
                 echo json_encode($json);
                 return;
             } else {

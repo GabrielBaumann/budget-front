@@ -29,12 +29,6 @@ $route->get("/uni", "App:cadastroUnidade");
 $route->get("/uni/{id}", "App:cadastroUnidade");
 $route->post("/uni", "App:cadastroUnidade");
 
-$route->get("/ob", "App:obras");
-$route->post("/ob", "App:obras");
-$route->get("/mat", "App:materiais");
-$route->post("/mat", "App:materiais");
-
-
 // ROUTE
 $route->dispatch();
 

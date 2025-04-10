@@ -1,3 +1,5 @@
+
+// Antigo
 $(function () {
     //ajax form
     $("form:not('.ajax_off')").submit(function (e) {
@@ -24,10 +26,23 @@ $(function () {
                 if (response.message) {
                     if (flash.length) {
                         flash.html(response.message).fadeIn(100).effect("bounce", 300);
+                            // Remove após 5 segundos
+                            setTimeout(function () {
+                                flash.fadeOut(3000, function () {
+                                    $(this).remove();
+                                });
+                            }, 3000);
                     } else {
-                        form.append("<div class='" + flashClass + "'>" + response.message + "</div>")
-                        
-                        .find("." + flashClass).effect("bounce", 300); 
+                        form.prepend("<div class='" + flashClass + "'>" + response.message + "</div>");
+                        var newFlash = form.find("." + flashClass);
+                        newFlash.effect("bounce", 300);
+
+                        // Remove após 5 segundos
+                        setTimeout(function () {
+                            newFlash.fadeOut(3000, function () {
+                                $(this).remove();
+                            });
+                        }, 3000);
                     }
                 } else {
                     flash.fadeOut(100);
