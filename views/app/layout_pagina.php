@@ -53,7 +53,7 @@
     <header class="h-12 border-b border-gray-200 dark:border-gray-600 hidden sm:block">
         <nav class="flex items-center justify-center h-full">
             <div class="flex items-stretch h-full max-w-4xl w-full">
-                <a href="<?= url("/"); ?>" class="flex items-center justify-center px-4 sm:px-6 relative hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex-1">
+                <a href="<?= url("/ini"); ?>" class="flex items-center justify-center px-4 sm:px-6 relative hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex-1">
                     <span class="text-xs sm:text-sm">Beneficiários e obras</span>
                 </a>
                 <a href="<?= url("/unidade"); ?>" class="flex items-center justify-center px-4 sm:px-6 relative hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex-1">
@@ -69,11 +69,11 @@
         </nav>
     </header>
 
-<!-- Conteúdo Principal -->
+    <!-- Conteúdo Principal -->
 
     <?= $this->section("content"); ?>
 
-<!-- Paginação -->
+    <!-- Paginação -->
     <div class="flex items-center justify-between mt-4 px-2">
         <div class="text-sm text-gray-500 dark:text-gray-400">
             Mostrando <span class="font-medium">1</span> a <span class="font-medium">3</span> de <span class="font-medium">10</span> resultados

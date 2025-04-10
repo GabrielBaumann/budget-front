@@ -199,6 +199,7 @@ class App extends Controller
 
     public function cadastroUnidade(?array $data) : void
     {   
+
         $undiades = (new Unidade());
 
         $id = $data['id'] ?? null;

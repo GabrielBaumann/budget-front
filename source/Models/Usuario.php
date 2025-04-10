@@ -13,21 +13,25 @@ class Usuario extends Model
         );
     }
 
-    public function autenticar(string $email, string $senha)
+    public function autenticar(string $email, string $senha): bool
     {
         $usuario = $this->find("email = :email", "email={$email}");
 
-        if(!empty($usuario)) {
+        if(!empty($usuario->fetch())) {
 
             if($usuario->fetch()->senha === $senha){
-                var_dump("Senha Ok");
+                // var_dump("Senha Ok");
+                $this->message->success("Ok")->render();
+                return true;
             } else {
-                $this->message = "Senha incorreta!";
+                // var_dump("Senha errada");
+                $this->message->error("Senha incorreta!")->render();
                 return false;
             }
             
         } else {
-            $this->message = "Usuário não cadastrado!";
+            // var_dump("Usuário não cadastrado");
+            $this->message->error("Usuário não encontrado")->render();
             return false;
         }
 

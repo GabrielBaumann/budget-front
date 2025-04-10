@@ -13,6 +13,7 @@ $route = new Router(url(), ":");
 $route->namespace("Source\App");
 
 $route->get("/", "Web:login");
+$route->post("/", "Web:login");
 
 
 $route->get("/ini", "App:inicio");

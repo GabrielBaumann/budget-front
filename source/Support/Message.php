@@ -18,6 +18,7 @@ class Message
     /** @var string */
     private $type;
 
+    private $img;
     /**
      * @return string
      */
@@ -42,6 +43,11 @@ class Message
         return $this->type;
     }
 
+    public function getImg() : ?string
+    {
+        return $this->img;    
+    }
+
     /**
      * @param string $message
      * @return Message
@@ -61,6 +67,7 @@ class Message
     {
         $this->type = CONF_MESSAGE_SUCCESS;
         $this->text = $this->filter($message);
+        $this->img = CONF_IMG_SUCESS;
         return $this;
     }
 
@@ -83,6 +90,7 @@ class Message
     {
         $this->type = CONF_MESSAGE_ERROR;
         $this->text = $this->filter($message);
+        $this->img = CONF_IMG_ERROR;
         return $this;
     }
 
@@ -91,7 +99,17 @@ class Message
      */
     public function render(): string
     {
-        return "<div class='" . CONF_MESSAGE_CLASS . " {$this->getType()}'>{$this->getText()}</div>";
+        // return "<div class='" . CONF_MESSAGE_CLASS . " {$this->getType()}'>{$this->getText()}</div>";
+        return "<div class=\"fixed top-4 right-4 z-50 max-w-sm w-full\">
+                    <div class=\"{$this->getType()} shadow-md flex items-start gap-2 animate-fade-in\">
+                        <svg class=\"w-6 h-6 mt-1 text-green-500\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" viewBox=\"0 0 24 24\">
+                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M5 13l4 4L19 7\" />
+                        </svg>
+                    <div>
+                        <strong class=\"block\">Sucesso!</strong>
+                            <span>{$this->getText()}</span>
+                    </div>
+            </div>";
     }
 
     /**
